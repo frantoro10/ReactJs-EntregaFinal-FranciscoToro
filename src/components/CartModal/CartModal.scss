@@ -1,0 +1,16 @@
+.boxPrice {
+    background-color: rgb(246, 246, 246);
+    margin-top: 1em;
+    width: 30%;
+    
+    border-radius: 1em;
+    p {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0.2em 0.5em;
+        color: rgb(85, 75, 75);
+    };
+    span {
+        color:rgb(54, 170, 54);
+    }
+}
