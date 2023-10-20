@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react'
-// firebase
-import {collection,getDocs,getFirestore} from 'firebase/firestore';
-// axios
-// import axios from "axios"
-// componentes
+import React from 'react'
 import ItemListContainer from '../components/ItemListContainer/ItemListContainer'
+import FiltersMenu from '../components/FiltersComponent/FiltersMenu'
+import styles from './Home.module.scss'
+import {useContext} from 'react'
+import {ProductsContext} from '../context/ProductsContext'
+import {useNavigate} from 'react-router-dom'
 
-// function getProducts() {
-//   return axios.get("https://dummyjson.com/products")
-// }
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const db = getFirestore();
-    const productsCollection = collection(db, "products");
 
-    getDocs(productsCollection).then((snapshot) => {
-      setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
-    })
-    .catch((error) => console.log(error))
-    .then(() => setLoading(false))
-  }, [])
+const {products, loading, filterProducts} = useContext(ProductsContext)
 
-  return loading ? <div>Loading...</div> : <ItemListContainer productsData={products}/>
 
-}
+return (
+  <div className={styles.productsBox}>
+  <FiltersMenu/>
+  {filterProducts.length > 0 ? (
+    <ItemListContainer productsData={filterProducts} />
+  ) : (
+    <ItemListContainer productsData={products} />
+  )}
+  </div>
+)
+    
+  }
+  
+  export default Home
 
-export default Home
+
+  // (loading ? <div>Loading</div> : <ItemListContainer productsData={products}/>)

@@ -1,0 +1,27 @@
+.faUserS {
+    margin: 0em 1em;
+    display: flex;
+        h5{
+            margin: 0em 0.4em;
+        }
+}
+
+.navbar {
+    background-color: red !important ;
+}
+
+.liContainer {
+    display: flex;
+    font-size: 1.3em;
+    margin: 0.2em 0em;
+    
+    
+    li {
+        margin: 0em 0.5em;
+        list-style-type: none;
+    }
+   a {
+    text-decoration: none;
+    color: white;
+   }
+}

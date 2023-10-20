@@ -1,0 +1,49 @@
+.modalContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(57, 56, 56);
+    color: white;
+    width: 30em;
+    padding: 5em;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    label {
+        display: block;
+        margin-bottom: 0.3em;
+    }
+
+    input {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.2em;
+        border-radius: 0.3em;
+        padding: 0.2em;
+        padding-inline: 0.5em;
+    }
+
+    button {
+        background-color: #0d6efd;
+        border: #0d6efd;
+        border-radius: 0.4em;
+        color: white;
+        padding: 0.5em;
+        padding-inline: 0.6em;
+        margin: 0.5em 0.5em;
+    }
+
+    input::placeholder {}
+}
+
+.loginButton {
+    background-color: #0d6efd;
+    border: #0d6efd;
+    border-radius: 0.4em;
+    color: white;
+    padding: 0.5em;
+    padding-inline: 0.6em;
+    margin: 0.5em 0.5em;
+}

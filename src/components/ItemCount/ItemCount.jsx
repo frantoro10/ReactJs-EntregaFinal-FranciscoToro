@@ -15,8 +15,6 @@ const handleAddProduct = () => {
     onAdd()
 
 
-    
-
 }
 const handleRemoveProduct = () => {
     setCart(cart - 1)

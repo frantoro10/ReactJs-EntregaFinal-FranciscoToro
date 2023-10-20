@@ -1,21 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Componentes
 import Home from '../pages/Home'
 import Category from '../pages/Category'
-import NavBarComponent from '../components/NavBarComponent/NavBar'
+import HeaderComponent from '../components/HeaderComponent/HeaderComponent'
 import ItemDetails from '../pages/ItemDetails'
 
 
 
 const MainRouter = () => {
+
+    const [username, setUserName] = useState('');
+
+    const handleLogin = (newUsername) => {
+        setUserName(newUsername);
+    };
+
     return (
         <Router>
-            <NavBarComponent />
+        
+            <HeaderComponent username={username} onLogin={handleLogin}/>
+            
             <Routes>
-                <Route path="/" element={<Home />}/>
+                <Route path="/" element={<Home />} />
                 <Route path="/category/:categoryId" element={<Category />} />
-                <Route path="/item/:productId" element={<ItemDetails/>} />
+                <Route path="/item/:productId" element={<ItemDetails />} />
             </Routes>
         </Router>
     )
