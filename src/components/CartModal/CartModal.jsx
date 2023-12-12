@@ -1,99 +1,112 @@
-import React from 'react'
-import Modal from 'react-bootstrap/Modal'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ItemCount from '../ItemCount/ItemCount';
-import { useState, useContext } from 'react'
+import React from 'react';
+import Modal from 'react-modal';
+import { useState, useEffect, useContext } from 'react'
+import {Link} from 'react-router-dom';
+import styles from './CartModal.module.scss'
 import { CartContext } from "../../context/CartContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import './CartModal.scss'
+import { faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 const CartModal = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-  // contexto
-  const { cart } = useContext(CartContext)
-  const { cartProducts, setCartProducts } = useContext(CartContext)
-  const { cartPrice, setCartPrice } = useContext(CartContext)
+  const [openModal, setOpenModal] = useState(false);
+  const { cartProducts, setCartProducts, cartPrice, setCartPrice } = useContext(CartContext);
+  const [selectedCount, setSelectedCount] = useState(1);
 
- 
- // Agregar producto al carrito al tocar el contador de la card del modal.
-  const handleAddProduct = (productData) => {
-    setCartProducts([...cartProducts, productData])
-    console.log(cartProducts)
-  }
-
-  // Eliminar producto del carrito
-  const handleRemoveProduct = (indexToRemove) => {
-    console.log("Eliminar producto con ID:", indexToRemove);
-    const updatedCart = cartProducts.filter((_, index) => index !== indexToRemove)
-    setCartProducts(updatedCart);
-    console.log("Carrito actualizado:", updatedCart);
-  }
-
-  // funcion precio del carrito.
   const priceCart = () => {
     let price = 0;
     cartProducts.forEach((item) => {
       price += item.price;
     });
-    return (price + cartPrice);
+    return price
   };
 
+  const handleShow = () => {
+    setOpenModal(true);
+  }
+
+  const handleClose = () => {
+    setOpenModal(false);
+  }
+  const handleRemoveProduct = (indexToRemove) => {
+    console.log("Eliminar producto con ID:", indexToRemove);
+    const updatedCart = cartProducts.filter((_, index) => index !== indexToRemove)
+    setCartProducts(updatedCart);
+
+  }
+
+  useEffect(() => {
+    console.log("producto agregado")
+
+  }, [cartProducts]);
+
+
   return (
-    //   fragmento
     <>
-      <div>
-        <FontAwesomeIcon icon={faCartShopping} style={{ color: "#eaecf1", }} onClick={handleShow} />
-      </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Productos del carrito:</Modal.Title>
-        </Modal.Header>
 
-        <Modal.Body>{cartProducts.map((item) => (
-          <Card style={{ width: '18rem' }} key={item.id}>
-            <Card.Img variant="top" src={item.img} />
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>
-                {item.version}
-              </Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item>{item.price} </ListGroup.Item>
-              <ListGroup.Item>{item.stock}</ListGroup.Item>
-            </ListGroup>
-            <Card.Body>
-              <ItemCount/>
-              <Button variant="primary" onClick={() => { handleRemoveProduct(cartProducts.indexOf(item)) }}>Eliminar</Button>
+      {<div>
+        <FontAwesomeIcon icon={faCartShopping} class="fa-xs" style={{ color: "#eaecf1", width: "25", marginTop: "1em" }} onClick={handleShow} />
+      </div>}
 
-            </Card.Body>
-          </Card>
-        ))}
-          <div className="boxPrice">
-            {/* <p>Cantidad de productos: {cart} </p> */}
-            <p>Envio: <span>Gratis</span></p>
-            <p>Total: {priceCart()}</p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Comprar
-          </Button>
-        </Modal.Footer>
+      <Modal isOpen={openModal}
+        className={` ${styles.modalBox}`} >
+        <span> Carrito: </span>
+        {cartProducts.length === 0 ? (<p>No hay productos en su carrito</p>) : (cartProducts.map((item) => {
+
+          return (
+            <div key={item} className={styles.modalProduct}>
+              <div className={styles.modalImg}>
+                <img src={item.img} alt="Error en cargar la imagen" />
+              </div>
+              <div className={styles.modalText}>
+                <span ><strong>{item.version}
+                </strong></span>
+                Precio: ${item.price}
+                <span>Cantidad: {item.quantify}</span>
+                <span><FontAwesomeIcon icon={faTrash} style={{ color: "#0d0c0c", }} size="lg" onClick={() => handleRemoveProduct(cartProducts.indexOf(item))} /> </span>
+                
+              </div>
+            </div>
+          )
+
+        }))}
+        <div>
+          Total: ${priceCart()}
+
+        </div>
+
+        <div>
+          <button onClick={handleClose} style={{ margin: "1em 1em" }}> Volver </button>
+          <button><Link to={"/shoppingCart"}>Comprar</Link></button>
+        </div>
+
       </Modal>
+
     </>
-  );
+  )
 }
 
-
 export default CartModal
+
+
+// const { cartProducts, setCartProducts } = useContext(CartContext)
+// const { cartPrice, setCartPrice } = useContext(CartContext)
+
+
+
+
+
+
+// const priceCart = () => {
+//   let price = 0;
+//   cartProducts.forEach((item) => {
+//     price += item.price;
+//   });
+//   return (price + cartPrice);
+// };
+
+
+
+
+

@@ -1,0 +1,55 @@
+.cartPage {
+    width: 80%;
+    margin: 0 auto;
+     form{
+        width: 60%;
+     }
+
+    tr {
+        
+        td {
+            
+            width: 25%;
+            
+            vertical-align: top;
+
+        }
+    }
+}
+
+
+
+.productVersion {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.dataImg {
+    
+    // width: 10%;
+
+    img {
+        width: 50%;
+        border: 1px solid #F0F0F0;
+        vertical-align: top;
+    }
+}
+
+.dataQuantify {
+    width: 30%;
+    height: 3em;
+    border-radius: 0.3em;
+    
+    text-align: center;
+}
+
+.dataPrice {
+    font-weight: 500;
+    font-size: 1.2em;
+    color: green;
+}
+
+.dataSubTotal {
+    font-weight: 500;
+    font-size: 1.2em;
+}

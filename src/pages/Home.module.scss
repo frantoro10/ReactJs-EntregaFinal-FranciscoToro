@@ -1,5 +1,21 @@
-.productsBox {
-    margin: 1em 0em;
+.boxDiv {
     display: flex;
-    flex-wrap: wrap
+    flex-direction: column;
+    width: 100%;
+    padding-inline: 10em;
+    margin: 0 auto;
+    .h2Box {
+        width: 80%;
+        margin: 1em 0em;
+
+        h2 {
+            border-bottom: 2px solid #7a7a7a;
+            
+            padding-bottom: 10px;
+            letter-spacing: .18px;
+            /* Mueve el elemento 10px hacia la izquierda */
+        }
+
+    }
 }
+

@@ -1,0 +1,31 @@
+.carouselContainer {
+    
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin: 0 auto;
+    // border: 3px solid yellow;
+
+}
+
+.productBox {
+    width: 70% !important;
+    background-color: white;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .2), 0 3px 1px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .14) !important;
+    flex-direction: column;
+    border: 2px solid rgb(206, 206, 206);
+    border-radius: 0.5em;
+    margin: 1em 0em;
+    padding: 0.5em;
+    text-align: center;
+
+    //    border: 5px solid blue;
+    img {
+        width: 100%;
+
+
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+}

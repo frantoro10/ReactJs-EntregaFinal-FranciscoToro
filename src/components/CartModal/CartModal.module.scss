@@ -1,0 +1,43 @@
+.modalBox {
+  position: absolute;
+  background: white;
+  width: 25%;
+  height: auto;
+  top: 2%;
+  right: 1%;
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modalProduct {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 2em 0em;
+
+
+}
+
+
+.modalImg {
+  width: 60%;
+
+  img {
+    width: 70%;
+
+  }
+}
+
+.modalText {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  span {
+    margin: 0.4em 0em;
+  }
+
+}
+
+.modalMainText {}

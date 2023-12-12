@@ -6,17 +6,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// Componentes propios
-import CartWidget from '../CartWidget/CartWidget';
-import CartModal from '../CartModal/CartModal';
-import ItemCount from '../ItemCount/ItemCount';
-import SearchBar from '../FiltersComponent/SearchBar';
-import LoginModal from '../LoginModal/LoginModal'
-// Importo contexto para usar el carrito
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { ProductsContext } from '../../context/ProductsContext'
-// Librerias animaciones
 // Styles                               
 import styles from "./NavBar.module.scss"
 
@@ -30,7 +19,7 @@ const NavBar = ({ username, onLogin }) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Categorias"> 
-            <NavDropdown.Item><Link to={"category/procesadores"}>Procesadores</Link> </NavDropdown.Item>
+            <NavDropdown.Item><Link to={"category/procesadores"}>Procesadores</Link> </NavDropdown.Item>  
             <NavDropdown.Item >
               <Link to={"category/placas-de-video"}>Placas de video</Link>
             </NavDropdown.Item>
@@ -40,9 +29,9 @@ const NavBar = ({ username, onLogin }) => {
             </NavDropdown>
             <ul className={styles.liContainer}>
               <li>
-            <a href="/">Productos</a>
+            <Link to={"products"}>Productos</Link>
             </li>
-            <li style={{color:"white"}}>Ofertas de la semana
+            <li style={{color:"white"}}>Ofertas de la semanas
             </li>
             </ul>
           </Nav>

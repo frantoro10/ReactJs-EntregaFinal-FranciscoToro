@@ -7,11 +7,7 @@ import styles from "./MainLayout.module.scss"
 
 const MainLayout = ( {children}) => {
   return (
-    <div>
-      <main >
-        {children} 
-        </main>      
-    </div>
+    <div>{children}</div>
   )
 }
 

@@ -1,0 +1,73 @@
+// itemdetails jsx 
+#detailsMainBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+
+
+}
+
+.detailsBox {
+    display: flex;
+    box-sizing: border-box; 
+    flex-direction: row-reverse;
+    width: 85%;
+    margin-top: 1rem;
+
+
+
+}
+
+.gallery {
+    border: 100px solid black;
+}
+
+
+// Componente: "ItemDetailContainer - Price Box" 
+
+.priceBox {
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-left: 1rem;
+    width: 40%;
+    height: auto;
+    max-width: 450px;
+    border-left: 1px solid rgb(197, 197, 197);
+
+    span {
+        font-size: 1.8rem;
+
+    }
+}
+
+.priceLista {
+
+    border-top: 1px solid lightblue;
+    border-bottom: 1px solid lightblue;
+    margin: 0.7rem 0rem;
+
+    .pListaUno {
+        margin-top: 0.5rem;
+    }
+
+    .pListaDos {
+        position: relative;
+        bottom: 0.7rem;
+    }
+
+}
+
+.green {
+    color: #4caf50;
+}
+
+.iconBox {
+    border-bottom: 1px solid lightblue;
+    margin-bottom: 1rem;
+}
+
+.carousel {
+    display: flex;
+}

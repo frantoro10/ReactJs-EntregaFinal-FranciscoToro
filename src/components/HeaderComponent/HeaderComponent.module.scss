@@ -1,16 +1,44 @@
 .header {
-
+    display: block;
     background-color:#37373f;
 }
 
 .headerBox {
-
-    display: flex;
+display: flex;
+position: relative;
+align-items: center;
+justify-content: center;
+width: 100%;
+    
 }
 
-// .searchBar {
-//     position: relative !important;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%) !important;
-// }
+
+.brandBox {
+    width: 10%;
+    font-size: 2em;
+}
+
+.brandName {
+    // font-size: 2em;
+}
+
+.searchBox {
+    display: flex;
+    // margin: 0 auto;
+    width: 33%;
+}
+
+
+.searchBar {
+    width: 100% !important;
+}
+
+
+.modalBox {
+    display: flex;
+    width: 20%;
+}
+
+.cartModal {
+    margin-top: 1em;
+}

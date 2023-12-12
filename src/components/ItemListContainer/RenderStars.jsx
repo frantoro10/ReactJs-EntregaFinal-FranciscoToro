@@ -18,4 +18,4 @@ const RenderStars = (rating) => {
 
 }
 
-export default RenderStars
+export default RenderStars 

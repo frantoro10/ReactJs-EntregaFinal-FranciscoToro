@@ -1,0 +1,25 @@
+// componentes reutilizables
+
+// font-size ( p h  ) etc
+.h2-title {
+    font-size: 24px;
+    font-weight: 400;
+    
+    
+
+}
+
+
+//  margins
+
+.mR1 {
+    transform: translateX(15px); /* Mueve el elemento 10px hacia la izquierda */
+}
+
+//  colores
+
+.p-price {
+    font-size: 1.2em;
+    color: #4675b9!important;
+    font-weight: 500 !important;
+}
